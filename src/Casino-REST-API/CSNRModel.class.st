@@ -27,8 +27,7 @@ CSNRModel class >> retrieveEntity: aRequest [
 { #category : #accessing }
 CSNRModel class >> sourceCode: aRequest [
 	<REST_API: 'GET' versions: #('v1') pattern: 'csn-model/<modelID>/entity/<entityID>/source'>
-	| model entityID entity |
-	model := MooseModel root at: (aRequest at: #modelID) asInteger.
-	entityID := (aRequest at: #entityID) asInteger.
-	^ MROutput json value: (TeaResponse ok body: { ('body' -> (model detect: [ :el | el mooseID = entityID ]) source sourceText) } asDictionary)
+	| entity |
+	entity := self retrieveEntity: aRequest.
+	^ MROutput json value: (TeaResponse ok body: {('body' -> entity source sourceText). (#file -> entity source sourceAnchor fileName)} asDictionary)
 ]
