@@ -58,6 +58,9 @@ CSNRModel class >> summary: aRequest [
 									{CSNService.
 									CSNServiceAPI.
 									CSNServiceAPIParameter}) size).
-					(#numberOfActions -> (model allWithSubTypesOf: CSNAction) size)}
+					(#numberOfActions -> (model allWithSubTypesOf: CSNAction) size).
+					(#numberOfAttributes
+						-> (model allWithSubTypesOf: CSNAttribute) size).
+					(#numberOfLayouts -> (model allWithSubTypesOf: CSNLLayout) size)}
 						asDictionary)
 ]
