@@ -40,6 +40,14 @@ CSNRModel class >> sourceCode: aRequest [
 ]
 
 { #category : #api }
+CSNRModel class >> subWidget: aRequest [
+	<REST_API: 'GET' versions: #('v1') pattern: 'csn-model/<modelID>/entity/<entityID>/subWidgets'>
+	| entity |
+	entity := self retrieveEntity: aRequest.
+	^ MROutput json value: (TeaResponse ok body: entity subWidgets)
+]
+
+{ #category : #api }
 CSNRModel class >> summary: aRequest [
 	<REST_API: 'GET' versions: #('v1') pattern: 'csn-model/<modelID>'>
 	| model |
