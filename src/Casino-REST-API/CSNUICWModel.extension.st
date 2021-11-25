@@ -1,6 +1,11 @@
 Extension { #name : #CSNUICWModel }
 
 { #category : #'*Casino-REST-API' }
+CSNUICWModel >> webRootEntities [
+	^ (self allWithSubTypesOf: CSNPage) asOrderedCollection 
+]
+
+{ #category : #'*Casino-REST-API' }
 CSNUICWModel >> webSummary [
 
 	^ { 
