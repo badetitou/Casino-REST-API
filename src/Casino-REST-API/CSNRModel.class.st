@@ -24,13 +24,6 @@ CSNRModel class >> retrieveEntity: aRequest [
 	^ model detect: [ :el | el mooseID = entityID ]
 ]
 
-{ #category : #accessing }
-CSNRModel class >> retrieveModel: aRequest [
-	"I need a model"
-
-	^ MooseModel root at: (aRequest at: #modelID) asInteger
-]
-
 { #category : #api }
 CSNRModel class >> sourceCode: aRequest [
 	<REST_API: 'GET' versions: #('v1') pattern: 'csn-model/<modelID>/entity/<entityID>/source'>
