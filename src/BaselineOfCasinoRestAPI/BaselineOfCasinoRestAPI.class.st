@@ -17,7 +17,8 @@ BaselineOfCasinoRestAPI >> baseline: spec [
 
 { #category : #baselines }
 BaselineOfCasinoRestAPI >> defineDependencies: spec [
-	spec baseline: 'MooseRestAPI' with: [ spec repository: 'github://badetitou/Moose-REST-API:/src' ]
+	spec baseline: 'MooseRestAPI' with: [ spec repository: 'github://badetitou/Moose-REST-API:/src' ].
+	spec baseline: 'Casino' with: [ spec repository: 'github://badetitou/Casino:/src' ].
 ]
 
 { #category : #baselines }
@@ -29,5 +30,5 @@ BaselineOfCasinoRestAPI >> defineGroups: spec [
 BaselineOfCasinoRestAPI >> definePackages: spec [
 	spec
 		package: 'Casino-REST-API'
-		with: [ spec requires: #('MooseRestAPI') ]
+		with: [ spec requires: #('MooseRestAPI' 'Casino') ]
 ]
